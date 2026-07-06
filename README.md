@@ -1,76 +1,86 @@
 # TiTi Story
 
-`TiTi Story` is a reusable Codex skill repository for writing children's English storyboard scripts around the original puppet character `提提 (TiTi)`.
+中文说明在前，英文说明在后。  
+Chinese section first, English section below.
 
-This repository is not just a single `SKILL.md` backup. It is organized as a reusable skill template repo with:
+---
 
-- the production skill itself
-- the fixed writing standard
-- installation guidance
-- reuse and customization guidance
-- example outputs
-- maintenance notes
-- source project documents used to define the standard
+## 中文说明
 
-## What This Repository Solves
+`TiTi Story` 是一个可复用的 Codex skill 仓库，用来围绕原创角色 `提提 (TiTi)` 产出固定格式的儿童英语动画故事脚本。
 
-This skill exists to stop output drift in serialized children's animation writing.
+这个仓库不是单独备份一个 `SKILL.md`，而是一个完整的 skill 模板仓库，包含：
 
-Without a fixed skill, story results tend to break in predictable ways:
+- 正式 skill 文件
+- 固定写作标准
+- 安装说明
+- 模板复用说明
+- 示例 prompt
+- 维护规范
+- 角色与项目源设定文档
 
-- template sections get omitted
-- shot counts become unstable
-- learning word intros disappear
-- dialogue pacing changes from episode to episode
-- character settings drift
-- magic rules become inconsistent
-- production handoff gets messy
+### 这个仓库解决什么问题
 
-`TiTi Story` fixes that by enforcing one stable story-writing shape.
+在系列化儿童内容生产里，如果没有固定 skill，结果通常会漂：
 
-## What The Skill Does
+- 模板段落漏掉
+- 分镜数量不稳定
+- 学习单词提示镜头被省略
+- 台词节奏每集不一致
+- 角色设定越写越偏
+- 魔法规则越写越乱
+- 后续出图、配音、剪辑衔接成本升高
 
-The skill writes scripts for a very specific workflow:
+这个仓库的目的，就是把这些容易漂的部分固定下来。
 
-- fixed `12-shot` vertical storyboard format
-- fixed `制作模版3.0` section order
-- built-in `学习单词提示镜头分解`
-- bilingual Chinese + English output
-- child-friendly `CEFR A1` English
-- fixed TiTi character lock
-- fixed `愿望灯` rule system
-- no background music instructions, only voice and sound effects
-- funny twist ending suitable for children
+### Skill 的核心能力
 
-## Best Use Cases
+这个 skill 专门服务于一条明确的生产链路：
 
-Use this skill when you need to:
+`核心词 -> 脚本 -> 分镜 -> 画面提示词 -> 配音 -> 剪辑`
 
-- generate a new episode from a single core word such as `LIGHT`, `RAIN`, `HOME`, or `APPLE`
-- keep every episode in exactly the same production format
-- preserve TiTi's fixed world rules
-- produce scripts that can move directly into storyboard, image generation, dubbing, and editing
-- build a repeatable children's English listening series instead of one-off stories
+固定能力包括：
 
-## Quick Start
+- 固定 `12 镜头` 正片分镜
+- 固定 `9:16` 竖构图设定
+- 固定 `制作模版3.0` 输出结构
+- 固定 `学习单词提示镜头分解`
+- 中英双语脚本输出
+- 面向儿童启蒙的 `CEFR A1` 英文难度
+- 固定主角 `提提`
+- 固定 `愿望灯` 规则
+- 固定“不要背景音乐，只保留人声和特效音效”
+- 固定“结尾要有轻松搞笑反转”
 
-In Codex, invoke the skill like this:
+### 适用场景
+
+适合用于：
+
+- 围绕单个核心词生成一集新故事
+- 保持每一集输出结构完全一致
+- 做系列化儿童英语磨耳朵内容
+- 直接给后续分镜、出图、配音、剪辑使用
+- 把提提世界观和角色规则稳定下来
+
+### 快速使用
+
+在 Codex 中调用：
 
 ```text
 $titi-story
 ```
 
-Example:
+示例：
 
 ```text
 Use $titi-story to write a new TiTi script for the core word LIGHT.
 ```
 
-Installation and setup details:
+安装说明：
 
 - [docs/install.md](./docs/install.md)
 
-## Repository Structure
+### 仓库结构
 
 ```text
 .
@@ -100,32 +110,231 @@ Installation and setup details:
 └── 第一集_愿望灯逐镜头画面提示词_会发光的小路.md
 ```
 
-## Skill Output Standard
+### 输出标准
 
-Every script produced by this skill is expected to include:
+这个 skill 产出的每份故事脚本，默认都应包含：
 
-1. opening instruction line for image layout
-2. fixed protagonist block
-3. fixed style block
-4. story summary
-5. fixed character block
-6. learning word intro breakdown
-7. word visual treatment notes
-8. main 12-shot storyboard breakdown
-9. dialogue summary in Chinese
-10. dialogue summary in English
-11. continuous English line for smart matching
+1. 开头总说明行
+2. 主人公固定说明
+3. 风格说明
+4. 情节概要
+5. 角色固定说明
+6. 学习单词提示镜头分解
+7. 文字表现建议
+8. 12 镜头正片分镜
+9. 台词总汇
+10. 中文版
+11. 英文版
+12. 智能文稿匹配（英文）
 
-See:
+参考：
 
 - [docs/example-output.md](./docs/example-output.md)
 - [examples/example-prompt.md](./examples/example-prompt.md)
 
-## TiTi Canonical Rules
+### 提提固定设定
 
-The skill assumes the canonical `提提` version already finalized in this project:
+当前 skill 默认绑定以下角色规则：
 
-- light wooden puppet boy
+- 主角是 `提提 (TiTi)`
+- 木质感小男孩木偶
+- 棕色层次短发
+- 圆润深色眼睛
+- 米色上衣
+- 蓝绿色短裤
+- 蓝绿色叶片斗篷
+- 棕色斜挎小包
+- 腰间挂小提灯
+- 夜晚默认使用 `不戴帽版`
+
+### 愿望灯规则
+
+`愿望灯` 是提提的核心叙事道具，不只是普通提灯。
+
+固定规则：
+
+- 只响应善良愿望
+- 只用于帮助别人
+- 只能实现温暖的小奇迹
+- 不直接替提提解决一切
+- 重点是让提提获得行动机会
+
+源文档参考：
+
+- [TiTi_人物设定补充_愿望灯.md](./TiTi_%E4%BA%BA%E7%89%A9%E8%AE%BE%E5%AE%9A%E8%A1%A5%E5%85%85_%E6%84%BF%E6%9C%9B%E7%81%AF.md)
+- [TiTi_儿童英语动画制作SOP.md](./TiTi_%E5%84%BF%E7%AB%A5%E8%8B%B1%E8%AF%AD%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9CSOP.md)
+
+### 如果你要把它当模板复用
+
+这个仓库已经按模板仓库方式组织好了。  
+后面如果你要做新的儿童故事 skill，通常只需要替换：
+
+1. skill 名称
+2. 角色锁定规则
+3. 世界观规则
+4. 示例 prompt
+5. 相关说明文档
+
+详细说明：
+
+- [docs/template-repo.md](./docs/template-repo.md)
+
+### 文档索引
+
+- [docs/overview.md](./docs/overview.md)：项目定位
+- [docs/features.md](./docs/features.md)：功能与约束
+- [docs/workflow.md](./docs/workflow.md)：生产流程
+- [docs/install.md](./docs/install.md)：安装说明
+- [docs/template-repo.md](./docs/template-repo.md)：模板复用说明
+- [docs/maintenance.md](./docs/maintenance.md)：维护规范
+
+### 示例材料
+
+- [examples/example-prompt.md](./examples/example-prompt.md)
+- [examples/example-use-cases.md](./examples/example-use-cases.md)
+- [第一集_愿望灯正式脚本_会发光的小路.md](./%E7%AC%AC%E4%B8%80%E9%9B%86_%E6%84%BF%E6%9C%9B%E7%81%AF%E6%AD%A3%E5%BC%8F%E8%84%9A%E6%9C%AC_%E4%BC%9A%E5%8F%91%E5%85%89%E7%9A%84%E5%B0%8F%E8%B7%AF.md)
+
+### 当前版本
+
+版本记录见：
+
+- [CHANGELOG.md](./CHANGELOG.md)
+
+---
+
+## English
+
+`TiTi Story` is a reusable Codex skill repository for generating fixed-format children's English animation story scripts around the original character `提提 (TiTi)`.
+
+This repository is not just a backup of one `SKILL.md`. It is organized as a complete reusable skill template repository with:
+
+- the production skill itself
+- the fixed writing standard
+- installation guidance
+- template reuse guidance
+- example prompts
+- maintenance rules
+- source documents for character and project constraints
+
+### What This Repository Solves
+
+In serialized children's content production, outputs drift quickly if the skill rules are not fixed:
+
+- sections get omitted
+- shot counts change
+- word-learning intro blocks disappear
+- dialogue pacing becomes inconsistent
+- character rules drift
+- magic rules become unstable
+- downstream image, dubbing, and editing work becomes harder
+
+This repository exists to lock those unstable parts down.
+
+### Core Skill Capability
+
+The skill is designed for one clear production chain:
+
+`core word -> script -> storyboard -> image prompts -> dubbing -> editing`
+
+The fixed capabilities include:
+
+- fixed `12-shot` main storyboard
+- fixed `9:16` vertical composition
+- fixed `制作模版3.0` output structure
+- fixed `学习单词提示镜头分解`
+- bilingual Chinese + English script output
+- `CEFR A1` level English for young children
+- fixed TiTi protagonist rules
+- fixed `Wish Lantern` rules
+- fixed `no background music, voice and sound effects only`
+- fixed light funny twist ending
+
+### Best Use Cases
+
+Use this repository when you want to:
+
+- generate a new episode from one core word
+- keep every episode in the exact same production structure
+- build a serialized children's English listening series
+- hand scripts directly into storyboard, image generation, dubbing, and edit workflows
+- preserve TiTi's world and rule consistency
+
+### Quick Start
+
+Invoke the skill in Codex with:
+
+```text
+$titi-story
+```
+
+Example:
+
+```text
+Use $titi-story to write a new TiTi script for the core word LIGHT.
+```
+
+Install guide:
+
+- [docs/install.md](./docs/install.md)
+
+### Repository Structure
+
+```text
+.
+├── README.md
+├── CHANGELOG.md
+├── docs/
+│   ├── example-output.md
+│   ├── features.md
+│   ├── install.md
+│   ├── maintenance.md
+│   ├── overview.md
+│   ├── template-repo.md
+│   └── workflow.md
+├── examples/
+│   ├── example-prompt.md
+│   └── example-use-cases.md
+├── templates/
+│   └── story-brief-template.md
+├── skills/
+│   └── titi-story/
+│       ├── SKILL.md
+│       └── agents/
+│           └── openai.yaml
+├── TiTi_人物设定补充_愿望灯.md
+├── TiTi_儿童英语动画制作SOP.md
+├── 第一集_愿望灯正式脚本_会发光的小路.md
+└── 第一集_愿望灯逐镜头画面提示词_会发光的小路.md
+```
+
+### Output Standard
+
+Each generated story script is expected to include:
+
+1. opening instruction line
+2. fixed protagonist block
+3. style block
+4. story summary
+5. fixed character block
+6. word-learning intro breakdown
+7. word visual treatment notes
+8. 12-shot main storyboard
+9. dialogue summary
+10. Chinese version
+11. English version
+12. smart English matching line
+
+References:
+
+- [docs/example-output.md](./docs/example-output.md)
+- [examples/example-prompt.md](./examples/example-prompt.md)
+
+### TiTi Canonical Rules
+
+The current skill is tied to the following character rules:
+
+- protagonist: `TiTi`
+- wooden puppet boy
 - layered brown short hair
 - round dark eyes
 - beige shirt
@@ -133,53 +342,57 @@ The skill assumes the canonical `提提` version already finalized in this proje
 - blue-green leaf cape
 - brown side bag
 - small waist lantern
-- night scenes use the `no hat` version
+- night scenes default to the `no-hat` version
 
-The lantern is not just a prop. It is a narrative rule system:
+### Wish Lantern Rules
 
-- formal name: `愿望灯`
+The `Wish Lantern` is TiTi's core narrative prop, not just a normal lamp.
+
+Fixed rules:
+
 - responds only to kind wishes
-- only helps others
-- creates small warm miracles
-- gives TiTi a chance to act instead of solving everything directly
+- can only be used to help others
+- creates only small warm miracles
+- does not solve everything for TiTi
+- mainly creates a chance for TiTi to act
 
 Source references:
 
 - [TiTi_人物设定补充_愿望灯.md](./TiTi_%E4%BA%BA%E7%89%A9%E8%AE%BE%E5%AE%9A%E8%A1%A5%E5%85%85_%E6%84%BF%E6%9C%9B%E7%81%AF.md)
 - [TiTi_儿童英语动画制作SOP.md](./TiTi_%E5%84%BF%E7%AB%A5%E8%8B%B1%E8%AF%AD%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9CSOP.md)
 
-## If You Want To Reuse This As A Template
+### Reusing This Repository As A Template
 
-This repository is structured so you can clone it and adapt it to another IP or another education format.
+This repository is already organized as a template repo.  
+If you want to build a new children's story skill from it, you usually only need to replace:
 
-Typical adaptation path:
-
-1. duplicate the skill directory
-2. rename the skill
-3. replace the character lock
-4. replace the world rules
-5. replace the fixed output format
-6. update the example prompts and docs
+1. the skill name
+2. the character lock rules
+3. the world rules
+4. the example prompts
+5. the related docs
 
 Detailed guide:
 
 - [docs/template-repo.md](./docs/template-repo.md)
 
-## Included Documentation
+### Documentation Index
 
-- [docs/overview.md](./docs/overview.md): project summary and intent
-- [docs/features.md](./docs/features.md): what the skill controls
-- [docs/workflow.md](./docs/workflow.md): production pipeline fit
-- [docs/install.md](./docs/install.md): how to install and use the skill
-- [docs/template-repo.md](./docs/template-repo.md): how to reuse this repo as a template
-- [docs/maintenance.md](./docs/maintenance.md): how to update the skill without breaking the format
+- [docs/overview.md](./docs/overview.md): project overview
+- [docs/features.md](./docs/features.md): features and constraints
+- [docs/workflow.md](./docs/workflow.md): production workflow
+- [docs/install.md](./docs/install.md): installation guide
+- [docs/template-repo.md](./docs/template-repo.md): template reuse guide
+- [docs/maintenance.md](./docs/maintenance.md): maintenance guidance
 
-## Example Material
+### Example Materials
 
 - [examples/example-prompt.md](./examples/example-prompt.md)
 - [examples/example-use-cases.md](./examples/example-use-cases.md)
 - [第一集_愿望灯正式脚本_会发光的小路.md](./%E7%AC%AC%E4%B8%80%E9%9B%86_%E6%84%BF%E6%9C%9B%E7%81%AF%E6%AD%A3%E5%BC%8F%E8%84%9A%E6%9C%AC_%E4%BC%9A%E5%8F%91%E5%85%89%E7%9A%84%E5%B0%8F%E8%B7%AF.md)
 
-## Current Version
+### Current Version
 
-See [CHANGELOG.md](./CHANGELOG.md) for repository evolution and the current template baseline.
+Version history:
+
+- [CHANGELOG.md](./CHANGELOG.md)
