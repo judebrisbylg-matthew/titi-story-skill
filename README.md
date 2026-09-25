@@ -1,5 +1,13 @@
 # TiTi Story
 
+## 故事技能操作流程 · HTML
+
+[打开网页预览（HTMLPreview）](https://htmlpreview.github.io/?https://github.com/judebrisbylg-matthew/titi-story-skill/blob/main/titi-skill-guide.html) · [查看 HTML 源文件](titi-skill-guide.html)
+
+包含技能用途、操作步骤、8 秒片头时间轴、脚本交付顺序、任务指令示例和交付检查清单。网页预览使用第三方 HTMLPreview；也可下载 HTML 与同目录角色图片后在浏览器打开。
+
+说明页依据当前安装版 skill 整理，页面中已注明它与仓库旧版 skill 的差异。
+
 中文说明在前，英文说明在后。  
 Chinese section first, English section below.
 
